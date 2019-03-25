@@ -1,15 +1,19 @@
 package com.codecool.snake;
 
 import com.codecool.snake.resources.Resources;
+import com.sun.javafx.geom.Vec2d;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
+import java.util.Random;
 
 // class for holding all static stuff
 public class Globals {
     private static Globals instance = null;
 
-    public static final double WINDOW_WIDTH = 1000;
-    public static final double WINDOW_HEIGHT = 700;
+    public static final double WINDOW_WIDTH = 1600;
+    public static final double WINDOW_HEIGHT = 900;
+
+    public static Random rnd = new Random();
+    private Vec2d snakeHeadActualPos = new Vec2d(WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 
     public Display display;
     public Game game;
@@ -21,6 +25,14 @@ public class Globals {
     public static Globals getInstance() {
         if(instance == null) instance = new Globals();
         return instance;
+    }
+
+    public void setSnakeHeadActualPos(Vec2d vec2d) {
+        snakeHeadActualPos = vec2d;
+    }
+
+    public Vec2d getSnakeHeadActualPos() {
+        return snakeHeadActualPos;
     }
 
     public void setGameLoop(GameLoop gameLoop) {

@@ -6,8 +6,6 @@ import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeHead;
-import java.util.Random;
-
 import javafx.geometry.Point2D;
 
 
@@ -15,16 +13,12 @@ import javafx.geometry.Point2D;
 public class SimpleEnemy extends Enemy implements Animatable, Interactable {
 
     private Point2D heading;
-    private static Random rnd = new Random();
 
     public SimpleEnemy() {
         super(10);
-
         setImage(Globals.getInstance().getImage("SimpleEnemy"));
-        setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
-        setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
 
-        double direction = rnd.nextDouble() * 360;
+        double direction = Globals.rnd.nextDouble() * 360;
         setRotate(direction);
 
         int speed = 1;
