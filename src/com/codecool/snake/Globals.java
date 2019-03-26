@@ -44,8 +44,10 @@ public class Globals {
         resources.addImage("SnakeHead", new Image("snake_head.png"));
         resources.addImage("SnakeBody", new Image("snake_body.png"));
         resources.addImage("SimpleEnemy", new Image("bible.png"));
-        resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
+        resources.addImage("PowerUpBerry", new Image("penta.png"));
         resources.addImage("Jesus", new Image("jesus.png"));
+        resources.addImage("Satan", new Image("jesus.png"));
+        resources.addImage("Cross", new Image("cross.png"));
     }
 
     public Image getImage(String name) { return resources.getImage(name); }
