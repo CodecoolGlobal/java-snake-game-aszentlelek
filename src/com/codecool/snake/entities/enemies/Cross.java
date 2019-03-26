@@ -17,11 +17,10 @@ public class Cross extends Enemy implements Animatable, Interactable {
     private Point2D heading;
 
     public Cross() {
-        super(10);
+        super(-10);
         setImage(Globals.getInstance().getImage("Cross"));
 
         double direction = Globals.rnd.nextDouble() * 360;
-        setRotate(direction);
 
         int speed = 1;
         heading = Utils.directionToVector(direction, speed);

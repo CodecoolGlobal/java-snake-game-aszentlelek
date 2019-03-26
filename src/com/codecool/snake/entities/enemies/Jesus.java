@@ -17,7 +17,7 @@ public class Jesus extends Enemy implements Animatable, Interactable {
     private Point2D heading;
 
     public Jesus() {
-        super(10);
+        super(-500);
         setImage(Globals.getInstance().getImage("Jesus"));
 
         double direction = Globals.rnd.nextDouble() * 360;
