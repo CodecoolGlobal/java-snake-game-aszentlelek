@@ -2,9 +2,11 @@ package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.enemies.Jesus;
+import com.codecool.snake.entities.powerups.Satan;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.eventhandler.InputHandler;
+import com.codecool.snake.entities.enemies.Cross;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.Scene;
@@ -64,10 +66,12 @@ public class Game extends Pane {
     private void spawnEnemies(int numberOfEnemies) {
         for(int i = 0; i < numberOfEnemies; ++i) new SimpleEnemy();
         for(int i = 0; i < numberOfEnemies; ++i) new Jesus();
+        for(int i = 0; i < numberOfEnemies; ++i) new Cross();
     }
 
     private void spawnPowerUps(int numberOfPowerUps) {
         for(int i = 0; i < numberOfPowerUps; ++i) new SimplePowerUp();
+        for(int i = 0; i < numberOfPowerUps; ++i) new Satan();
     }
 
     private void setupInputHandling() {

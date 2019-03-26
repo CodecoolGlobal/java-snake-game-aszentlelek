@@ -12,16 +12,15 @@ import javafx.geometry.Point2D;
 
 
 
-public class Jesus extends Enemy implements Animatable, Interactable {
+public class Cross extends Enemy implements Animatable, Interactable {
 
     private Point2D heading;
 
-    public Jesus() {
-        super(-500);
-        setImage(Globals.getInstance().getImage("Jesus"));
+    public Cross() {
+        super(-10);
+        setImage(Globals.getInstance().getImage("Cross"));
 
         double direction = Globals.rnd.nextDouble() * 360;
-        setRotate(direction);
 
         int speed = 1;
         heading = Utils.directionToVector(direction, speed);
