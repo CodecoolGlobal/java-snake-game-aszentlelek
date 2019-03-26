@@ -14,6 +14,7 @@ public abstract class GameEntity extends ImageView {
 
     protected void destroy() {
         Globals.getInstance().display.remove(this);
+
     }
 
     public Vec2d getPosition() {

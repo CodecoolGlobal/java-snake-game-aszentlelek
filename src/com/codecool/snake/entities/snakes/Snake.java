@@ -14,6 +14,7 @@ public class Snake implements Animatable {
     private static final float speed = 2;
     private int health = 100;
 
+
     private SnakeHead head;
     private DelayedModificationList<GameEntity> body;
 
@@ -23,6 +24,10 @@ public class Snake implements Animatable {
         body = new DelayedModificationList<>();
 
         addPart(4);
+    }
+
+    public int getHealth() {
+        return health;
     }
 
     public void step() {
