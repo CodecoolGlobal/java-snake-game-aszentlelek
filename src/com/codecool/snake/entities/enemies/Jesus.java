@@ -12,13 +12,13 @@ import javafx.geometry.Point2D;
 
 
 
-public class SimpleEnemy extends Enemy implements Animatable, Interactable {
+public class Jesus extends Enemy implements Animatable, Interactable {
 
     private Point2D heading;
 
-    public SimpleEnemy() {
+    public Jesus() {
         super(10);
-        setImage(Globals.getInstance().getImage("SimpleEnemy"));
+        setImage(Globals.getInstance().getImage("Jesus"));
 
         double direction = Globals.rnd.nextDouble() * 360;
         setRotate(direction);
@@ -59,7 +59,7 @@ public class SimpleEnemy extends Enemy implements Animatable, Interactable {
     @Override
     public void apply(GameEntity entity) {
         if(entity instanceof SnakeHead){
-            System.out.println(getMessage());
+            System.out.println("AMEN!");
             destroy();
         }
     }
