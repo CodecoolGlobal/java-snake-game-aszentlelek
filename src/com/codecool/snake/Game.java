@@ -8,12 +8,15 @@ import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.Scene;
+import javafx.scene.text.*;
 import javafx.scene.layout.Pane;
+
 
 
 public class Game extends Pane {
     private Snake snake = null;
     private GameTimer gameTimer = new GameTimer();
+    private Text HPtext = new Text();
 
 
     public Game() {
@@ -24,10 +27,16 @@ public class Game extends Pane {
         init();
     }
 
+    public Text getHPtext() {
+        return HPtext;
+    }
+
     public void init() {
         spawnSnake();
         spawnEnemies(4);
         spawnPowerUps(4);
+        spawnHP();
+
 
         GameLoop gameLoop = new GameLoop(snake);
         Globals.getInstance().setGameLoop(gameLoop);
@@ -42,6 +51,14 @@ public class Game extends Pane {
 
     private void spawnSnake() {
         snake = new Snake(new Vec2d(Globals.WINDOW_WIDTH/2, Globals.WINDOW_HEIGHT/2));
+    }
+
+    private void spawnHP(){
+
+        HPtext.setText("Health: "+ snake.getHealth());
+        HPtext.setX(100);
+        HPtext.setY(100);
+        getChildren().add(HPtext);
     }
 
     private void spawnEnemies(int numberOfEnemies) {

@@ -32,6 +32,8 @@ public class GameLoop {
                 randomSpawnTime = Globals.rnd.nextInt(20) + 5;
                 startTime = System.currentTimeMillis();
             }
+            Globals.getInstance().game.getHPtext().setText("Health: "+snake.getHealth());
+
             for (GameEntity gameObject : Globals.getInstance().display.getObjectList()) {
                 if (gameObject instanceof Animatable) {
                     ((Animatable) gameObject).step();
