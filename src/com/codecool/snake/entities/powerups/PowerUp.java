@@ -18,6 +18,7 @@ public abstract class PowerUp extends GameEntity{
         this.damage = damage;
     }
 
+
     public int getDamage() {
         return damage;
     }
