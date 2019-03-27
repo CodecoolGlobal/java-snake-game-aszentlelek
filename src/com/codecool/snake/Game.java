@@ -1,9 +1,7 @@
 package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.Bible;
-import com.codecool.snake.entities.enemies.Jesus;
 import com.codecool.snake.entities.powerups.Blood;
-import com.codecool.snake.entities.powerups.Satan;
 import com.codecool.snake.entities.powerups.Penta;
 import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.eventhandler.InputHandler;
@@ -79,13 +77,11 @@ public class Game extends Pane {
 
     private void spawnEnemies(int numberOfEnemies) {
         for(int i = 0; i < numberOfEnemies; ++i) new Bible();
-        for(int i = 0; i < numberOfEnemies; ++i) new Jesus();
         for(int i = 0; i < numberOfEnemies; ++i) new Cross();
     }
 
     private void spawnPowerUps(int numberOfPowerUps) {
         for(int i = 0; i < numberOfPowerUps; ++i) new Penta();
-        for(int i = 0; i < numberOfPowerUps; ++i) new Satan();
         for(int i = 0; i < numberOfPowerUps; ++i) new Blood();
     }
 

@@ -3,6 +3,7 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.enemies.Jesus;
 import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.entities.enemies.Bible;
 
@@ -12,7 +13,7 @@ public class GameLoop {
     private Snake snake;
     private boolean running = false;
     private long startTime = System.currentTimeMillis();
-    private int randomSpawnTime = Globals.rnd.nextInt(20) + 5;
+    private int randomSpawnTime = Globals.rnd.nextInt(7) + 3;
 
     public GameLoop(Snake snake) { this.snake = snake; }
 
@@ -29,6 +30,7 @@ public class GameLoop {
             snake.step();
             if (((System.currentTimeMillis() - startTime)/1000) == randomSpawnTime) {
                 new Bible();
+                new Jesus();
                 randomSpawnTime = Globals.rnd.nextInt(20) + 5;
                 startTime = System.currentTimeMillis();
             }
