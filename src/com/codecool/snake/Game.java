@@ -120,4 +120,5 @@ public class Game extends Pane {
         game.setTableBackground(new Image("/eden.jpg"));
         game.start();
     }
+
 }
