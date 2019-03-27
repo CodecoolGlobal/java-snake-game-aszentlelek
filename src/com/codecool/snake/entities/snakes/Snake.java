@@ -73,6 +73,7 @@ public class Snake implements Animatable {
             Globals.getInstance().display.clear();
             Globals.getInstance().game.setTableBackground(new Image("/purgatory.jpg"));
             System.out.println("Game Over");
+            Globals.getInstance().game.getChildren().add(gameOverText("Length: " + this.body.getList().size(),70,1250,100));
             Globals.getInstance().game.getChildren().add(gameOverText("Game Over",80,+
                     Globals.WINDOW_WIDTH/2.5,Globals.WINDOW_HEIGHT/3));
             Globals.getInstance().game.getChildren().add(gameOverText("Genesis 3:14\n\n" +
@@ -97,7 +98,7 @@ public class Snake implements Animatable {
         blend.setMode(BlendMode.MULTIPLY);
 
         DropShadow ds = new DropShadow();
-        ds.setColor(Color.rgb(254, 235, 66, 0.3));
+        ds.setColor(Color.rgb(60, 60, 66, 0.3));
         ds.setOffsetX(5);
         ds.setOffsetY(5);
         ds.setRadius(5);
@@ -106,7 +107,7 @@ public class Snake implements Animatable {
         blend.setBottomInput(ds);
 
         DropShadow ds1 = new DropShadow();
-        ds1.setColor(Color.web("#f13a00"));
+        ds1.setColor(Color.web("#505050"));
         ds1.setRadius(20);
         ds1.setSpread(0.2);
 
