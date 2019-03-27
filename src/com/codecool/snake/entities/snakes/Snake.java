@@ -34,6 +34,7 @@ public class Snake implements Animatable {
         return health;
     }
 
+
     public void step() {
         SnakeControl turnDir = getUserInput();
         head.updateRotation(turnDir, speed);

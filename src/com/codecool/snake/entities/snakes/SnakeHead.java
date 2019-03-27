@@ -6,6 +6,7 @@ import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.enemies.Enemy;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
+import com.codecool.snake.entities.enemies.Cross;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.geometry.Point2D;
