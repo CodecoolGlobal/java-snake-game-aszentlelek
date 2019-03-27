@@ -57,6 +57,10 @@ public class Globals {
 
     public void stopGame() { gameLoop.stop(); }
 
+    public int getRandomSpawnTime(int from, int to) {
+        return Globals.rnd.nextInt(to-from) + from;
+    }
+
     private Globals() {
         // singleton needs the class to have private constructor
     }
