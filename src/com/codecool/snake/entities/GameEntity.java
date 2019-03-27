@@ -8,12 +8,13 @@ import javafx.scene.image.ImageView;
 // The base class for every game entity.
 public abstract class GameEntity extends ImageView {
 
-    protected GameEntity() {
-        Globals.getInstance().display.add(this);
-    }
+    protected Vec2d randomPos;
 
-    public void destroy() {
+    protected GameEntity() { Globals.getInstance().display.add(this); }
+
+    protected void destroy() {
         Globals.getInstance().display.remove(this);
+
     }
 
     public Vec2d getPosition() {
@@ -26,10 +27,13 @@ public abstract class GameEntity extends ImageView {
     }
 
     public boolean isOutOfBounds() {
-        if (getX() > Globals.WINDOW_WIDTH || getX() < 0 ||
-            getY() > Globals.WINDOW_HEIGHT || getY() < 0) {
-            return true;
-        }
-        return false;
+        return getX() > Globals.WINDOW_WIDTH || getX() < 0 ||
+                getY() > Globals.WINDOW_HEIGHT || getY() < 0;
+    }
+
+    protected void generateRandomXY() {
+        double randomX = Globals.rnd.nextDouble() * Globals.WINDOW_WIDTH;
+        double randomY = Globals.rnd.nextDouble() * Globals.WINDOW_HEIGHT;
+        randomPos = new Vec2d(randomX, randomY);
     }
 }

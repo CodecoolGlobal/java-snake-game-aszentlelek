@@ -4,12 +4,15 @@ import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.Snake;
+import com.codecool.snake.entities.enemies.Bible;
 
 import java.util.List;
 
 public class GameLoop {
     private Snake snake;
     private boolean running = false;
+    private long startTime = System.currentTimeMillis();
+    private int randomSpawnTime = Globals.rnd.nextInt(20) + 5;
 
     public GameLoop(Snake snake) { this.snake = snake; }
 
@@ -24,6 +27,13 @@ public class GameLoop {
     public void step() {
         if(running) {
             snake.step();
+            if (((System.currentTimeMillis() - startTime)/1000) == randomSpawnTime) {
+                new Bible();
+                randomSpawnTime = Globals.rnd.nextInt(20) + 5;
+                startTime = System.currentTimeMillis();
+            }
+            Globals.getInstance().game.getHPtext().setText("Health: "+snake.getHealth());
+
             for (GameEntity gameObject : Globals.getInstance().display.getObjectList()) {
                 if (gameObject instanceof Animatable) {
                     ((Animatable) gameObject).step();
