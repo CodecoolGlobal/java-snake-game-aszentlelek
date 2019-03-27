@@ -8,6 +8,8 @@ import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.Scene;
+import javafx.scene.effect.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.scene.layout.Pane;
 
@@ -55,9 +57,20 @@ public class Game extends Pane {
 
     private void spawnHP(){
 
-        HPtext.setText("Health: "+ snake.getHealth());
-        HPtext.setX(100);
-        HPtext.setY(100);
+        InnerShadow is = new InnerShadow();
+        is.setOffsetX(4.0f);
+        is.setOffsetY(4.0f);
+
+        HPtext.setEffect(is);
+        HPtext.setX(10);
+        HPtext.setY(20);
+        HPtext.setText("Health: " + snake.getHealth());
+        HPtext.setFill(Color.YELLOW);
+        HPtext.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+        HPtext.setTranslateX(20);
+        HPtext.setTranslateY(10);
+
         getChildren().add(HPtext);
     }
 
