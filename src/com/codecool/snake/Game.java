@@ -2,6 +2,7 @@ package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.enemies.Jesus;
+import com.codecool.snake.entities.powerups.Blood;
 import com.codecool.snake.entities.powerups.Satan;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.snakes.Snake;
@@ -72,6 +73,7 @@ public class Game extends Pane {
     private void spawnPowerUps(int numberOfPowerUps) {
         for(int i = 0; i < numberOfPowerUps; ++i) new SimplePowerUp();
         for(int i = 0; i < numberOfPowerUps; ++i) new Satan();
+        for(int i = 0; i < numberOfPowerUps; ++i) new Blood();
     }
 
     private void setupInputHandling() {

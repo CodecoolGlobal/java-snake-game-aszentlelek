@@ -48,6 +48,7 @@ public class Globals {
         resources.addImage("Jesus", new Image("jesus.png"));
         resources.addImage("Satan", new Image("blood.png"));
         resources.addImage("Cross", new Image("cross.png"));
+        resources.addImage("Blood", new Image("blood.png"));
     }
 
     public Image getImage(String name) { return resources.getImage(name); }
