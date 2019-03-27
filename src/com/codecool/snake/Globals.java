@@ -46,7 +46,7 @@ public class Globals {
         resources.addImage("SimpleEnemy", new Image("bible.png"));
         resources.addImage("PowerUpBerry", new Image("penta.png"));
         resources.addImage("Jesus", new Image("jesus.png"));
-        resources.addImage("Satan", new Image("blood.png"));
+        resources.addImage("Satan", new Image("satan.png"));
         resources.addImage("Cross", new Image("cross.png"));
         resources.addImage("Blood", new Image("blood.png"));
     }
