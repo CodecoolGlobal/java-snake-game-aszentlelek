@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 
 
 public class Snake implements Animatable {
-    private static final float speed = 2;
+    private float speed = 2;
     private int health = 100;
 
 
@@ -29,6 +29,10 @@ public class Snake implements Animatable {
         body = new DelayedModificationList<>();
 
         addPart(4);
+    }
+
+    public void setSpeed(float speedUp) {
+        this.speed = this.speed + speedUp;
     }
 
     public int getHealth() {
