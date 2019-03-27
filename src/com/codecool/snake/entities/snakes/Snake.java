@@ -8,6 +8,7 @@ import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.effect.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -69,9 +70,16 @@ public class Snake implements Animatable {
 
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
+            Globals.getInstance().display.clear();
+            Globals.getInstance().game.setTableBackground(new Image("/purgatory.jpg"));
             System.out.println("Game Over");
-            Globals.getInstance().game.getChildren().add(gameOverText("Game Over",80,Globals.WINDOW_WIDTH/2.5,Globals.WINDOW_HEIGHT/3));
-            Globals.getInstance().game.getChildren().add(gameOverText("Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm Lorem ipsssuuummm ",40,Globals.WINDOW_WIDTH/3.5,Globals.WINDOW_HEIGHT/2));
+            Globals.getInstance().game.getChildren().add(gameOverText("Game Over",80,+
+                    Globals.WINDOW_WIDTH/2.5,Globals.WINDOW_HEIGHT/3));
+            Globals.getInstance().game.getChildren().add(gameOverText("Genesis 3:14\n\n" +
+                    " The LORD God said to the serpent, \"Because you have done this,\n  " +
+                    "Cursed are you more than all cattle, And more than every beast of the field;\n   " +
+                    "On your belly you will go, And dust you will eat All the days of your life...",40,+
+                    Globals.WINDOW_WIDTH/4.5,Globals.WINDOW_HEIGHT/2.5));
             Globals.getInstance().stopGame();
         }
     }
