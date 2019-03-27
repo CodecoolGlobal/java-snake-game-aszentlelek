@@ -7,12 +7,11 @@ import com.codecool.snake.entities.snakes.SnakeHead;
 import com.codecool.snake.entities.powerups.PowerUp;
 import java.util.Random;
 
-
 public class Satan extends PowerUp implements Interactable {
     private static Random rnd = new Random();
 
     public Satan() {
-        super(10);
+        super(0.5f);
         setImage(Globals.getInstance().getImage("Satan"));
 
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
