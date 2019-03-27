@@ -29,7 +29,7 @@ public class Snake implements Animatable {
         head = new SnakeHead(this, position);
         body = new DelayedModificationList<>();
 
-        addPart(4);
+        addPart(3);
     }
 
     public void setSpeed(float speedUp) {
@@ -78,7 +78,7 @@ public class Snake implements Animatable {
             Globals.getInstance().display.clear();
             Globals.getInstance().game.setTableBackground(new Image("/purgatory.jpg"));
             System.out.println("Game Over");
-            Globals.getInstance().game.getChildren().add(gameOverText("Length: " + this.body.getList().size(),70,1250,100));
+            Globals.getInstance().game.getChildren().add(gameOverText("Score: " + (this.body.getList().size() * 10 + 6),70,1250,100));
             Globals.getInstance().game.getChildren().add(gameOverText("Game Over",80,+
                     Globals.WINDOW_WIDTH/2.5,Globals.WINDOW_HEIGHT/3));
             Globals.getInstance().game.getChildren().add(gameOverText("Genesis 3:14\n\n" +
@@ -86,6 +86,15 @@ public class Snake implements Animatable {
                     "Cursed are you more than all cattle, And more than every beast of the field;\n   " +
                     "On your belly you will go, And dust you will eat All the days of your life...",40,+
                     Globals.WINDOW_WIDTH/4.5,Globals.WINDOW_HEIGHT/2.5));
+            Globals.getInstance().stopGame();
+        }
+        if (this.body.getList().size() * 10 + 6 >= 666) {
+            Globals.getInstance().display.clear();
+            Globals.getInstance().game.setTableBackground(new Image("/satanwin.png"));
+            System.out.println("You win!");
+            Globals.getInstance().game.getChildren().add(gameOverText("Score: " + (this.body.getList().size() * 10 + 6),70,1250,100));
+            Globals.getInstance().game.getChildren().add(gameOverText("You win!",200,+
+                    Globals.WINDOW_WIDTH/3.7,Globals.WINDOW_HEIGHT/2));
             Globals.getInstance().stopGame();
         }
     }
@@ -96,7 +105,7 @@ public class Snake implements Animatable {
         text.setY(y);
         text.setText(txt);
         text.setFont(Font.font ("Alex Brush", size));
-        text.setFill(Color.CRIMSON);
+        text.setFill(Color.LEMONCHIFFON);
         text.setCache(true);
 
         Blend blend = new Blend();

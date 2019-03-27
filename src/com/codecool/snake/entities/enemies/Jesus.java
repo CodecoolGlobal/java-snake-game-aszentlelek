@@ -1,6 +1,5 @@
 package com.codecool.snake.entities.enemies;
 
-import com.codecool.snake.GameLoop;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
@@ -18,7 +17,7 @@ public class Jesus extends Enemy implements Animatable, Interactable {
     private int jesusLifeTime = Globals.getInstance().getRandomSpawnTime(3,5);
 
     public Jesus() {
-        super(-150);
+        super(-75);
         setImage(Globals.getInstance().getImage("Jesus"));
 
         double direction = Globals.rnd.nextDouble() * 360;

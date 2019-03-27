@@ -7,7 +7,6 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.enemies.Enemy;
 import com.codecool.snake.entities.powerups.Penta;
 import com.codecool.snake.entities.powerups.*;
-import com.codecool.snake.entities.snakes.Snake;
 
 import com.codecool.snake.entities.powerups.PowerUp;
 import com.sun.javafx.geom.Vec2d;
