@@ -52,7 +52,7 @@ public class SnakeHead extends GameEntity implements Interactable {
         }
         if(entity instanceof Penta){
             System.out.println(getMessage());
-            snake.addPart(4);
+            snake.addPart(3);
         }
     }
 

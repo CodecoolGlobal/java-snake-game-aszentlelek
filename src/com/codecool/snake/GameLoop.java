@@ -12,32 +12,48 @@ import java.util.List;
 public class GameLoop {
     private Snake snake;
     private boolean running = false;
-    private long startTimeEnemy, startTimePowerUp, startTimeJesus = System.currentTimeMillis();
+    private long startTimeBible = System.currentTimeMillis();
+    private long startTimeCross = System.currentTimeMillis();
+    private long startTimeJesus = System.currentTimeMillis();
+    private long startTimeBlood = System.currentTimeMillis();
+    private long startTimePenta = System.currentTimeMillis();
+    private long startTimeSatan = System.currentTimeMillis();
+    GameLoop(Snake snake) { this.snake = snake; }
 
-    public GameLoop(Snake snake) { this.snake = snake; }
-
-    public void start() {
+    void start() {
         running = true;
     }
 
-    public void stop() {
+    void stop() {
         running = false;
     }
 
-    public void step() {
+    void step() {
         if(running) {
             snake.step();
-            if (((System.currentTimeMillis() - startTimeEnemy)/1000) == Globals.getInstance().getRandomSpawnTime(2,5)) {
+            if (((System.currentTimeMillis() - startTimeBible)/1000) == Globals.getInstance().getRandomSpawnTime(10,15)) {
                 new Bible();
-                startTimeEnemy = System.currentTimeMillis();
+                startTimeBible = System.currentTimeMillis();
             }
-            if (((System.currentTimeMillis() - startTimePowerUp)/1000) == Globals.getInstance().getRandomSpawnTime(1,3)) {
-                new Penta();
-                startTimePowerUp = System.currentTimeMillis();
+            if (((System.currentTimeMillis() - startTimeCross)/1000) == Globals.getInstance().getRandomSpawnTime(5,10)) {
+                new Cross();
+                startTimeCross = System.currentTimeMillis();
             }
-            if (((System.currentTimeMillis() - startTimeJesus)/1000) == Globals.getInstance().getRandomSpawnTime(12,20)) {
+            if (((System.currentTimeMillis() - startTimeJesus)/1000) == Globals.getInstance().getRandomSpawnTime(13,20)) {
                 new Jesus();
                 startTimeJesus = System.currentTimeMillis();
+            }
+            if (((System.currentTimeMillis() - startTimeBlood)/1000) == Globals.getInstance().getRandomSpawnTime(7,10)) {
+                new Blood();
+                startTimeBlood = System.currentTimeMillis();
+            }
+            if (((System.currentTimeMillis() - startTimePenta)/1000) == Globals.getInstance().getRandomSpawnTime(3,5)) {
+                new Penta();
+                startTimePenta = System.currentTimeMillis();
+            }
+            if (((System.currentTimeMillis() - startTimeSatan)/1000) == Globals.getInstance().getRandomSpawnTime(13,20)) {
+                new Satan();
+                startTimeSatan = System.currentTimeMillis();
             }
 
             Globals.getInstance().game.getHPtext().setText("Health: "+snake.getHealth());
