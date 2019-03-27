@@ -10,9 +10,10 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    public static Stage stage;
     @Override
     public void start(Stage primaryStage) {
+        this.stage = primaryStage;
         Game game = new Game();
 
         Scene mainScene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
@@ -29,4 +30,5 @@ public class Main extends Application {
     public void stop() throws Exception {
         System.out.println("Exiting..");
     }
+
 }

@@ -11,6 +11,7 @@ import com.codecool.snake.entities.enemies.Cross;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.effect.*;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
@@ -40,6 +41,7 @@ public class Game extends Pane {
         spawnSnake();
         spawnEnemies(4);
         spawnPowerUps(4);
+        makeRestartBtn();
         spawnHP();
 
 
@@ -77,6 +79,15 @@ public class Game extends Pane {
         getChildren().add(HPtext);
     }
 
+    private void makeRestartBtn(){
+        Button button = new Button("Restart");
+        button.setLayoutX(20);
+        button.setLayoutY(60);
+        button.setOnMouseClicked(event -> restart());
+        this.getChildren().add(button);
+    }
+
+
     private void spawnEnemies(int numberOfEnemies) {
         for(int i = 0; i < numberOfEnemies; ++i) new Bible();
         for(int i = 0; i < numberOfEnemies; ++i) new Jesus();
@@ -99,5 +110,18 @@ public class Game extends Pane {
         setBackground(new Background(new BackgroundImage(tableBackground,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
                 BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+    }
+
+    public void restart(){
+        Game game = new Game();
+
+        Scene mainScene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
+        mainScene.getStylesheets().add("http://fonts.googleapis.com/css?family=Alex+Brush");
+
+        Main.stage.setTitle("Snake Game");
+        Main.stage.setScene(mainScene);
+        Main.stage.show();
+        game.setTableBackground(new Image("/eden.jpg"));
+        game.start();
     }
 }
