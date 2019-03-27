@@ -1,15 +1,18 @@
 package com.codecool.snake;
 
-import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.enemies.Bible;
 import com.codecool.snake.entities.enemies.Jesus;
+import com.codecool.snake.entities.powerups.Blood;
 import com.codecool.snake.entities.powerups.Satan;
-import com.codecool.snake.entities.powerups.SimplePowerUp;
+import com.codecool.snake.entities.powerups.Penta;
 import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.eventhandler.InputHandler;
 import com.codecool.snake.entities.enemies.Cross;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.Scene;
+import javafx.scene.effect.*;
+import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
@@ -57,21 +60,33 @@ public class Game extends Pane {
 
     private void spawnHP(){
 
-        HPtext.setText("Health: "+ snake.getHealth());
-        HPtext.setX(100);
-        HPtext.setY(100);
+        InnerShadow is = new InnerShadow();
+        is.setOffsetX(4.0f);
+        is.setOffsetY(4.0f);
+
+        HPtext.setEffect(is);
+        HPtext.setX(10);
+        HPtext.setY(20);
+        HPtext.setText("Health: " + snake.getHealth());
+        HPtext.setFill(Color.YELLOW);
+        HPtext.setFont(Font.font(null, FontWeight.BOLD, 30));
+
+        HPtext.setTranslateX(20);
+        HPtext.setTranslateY(10);
+
         getChildren().add(HPtext);
     }
 
     private void spawnEnemies(int numberOfEnemies) {
-        for(int i = 0; i < numberOfEnemies; ++i) new SimpleEnemy();
+        for(int i = 0; i < numberOfEnemies; ++i) new Bible();
         for(int i = 0; i < numberOfEnemies; ++i) new Jesus();
         for(int i = 0; i < numberOfEnemies; ++i) new Cross();
     }
 
     private void spawnPowerUps(int numberOfPowerUps) {
-        for(int i = 0; i < numberOfPowerUps; ++i) new SimplePowerUp();
+        for(int i = 0; i < numberOfPowerUps; ++i) new Penta();
         for(int i = 0; i < numberOfPowerUps; ++i) new Satan();
+        for(int i = 0; i < numberOfPowerUps; ++i) new Blood();
     }
 
     private void setupInputHandling() {

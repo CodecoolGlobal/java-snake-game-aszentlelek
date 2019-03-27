@@ -16,6 +16,8 @@ public class Main extends Application {
         Game game = new Game();
 
         Scene mainScene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
+        mainScene.getStylesheets().add("http://fonts.googleapis.com/css?family=Alex+Brush");
+
         primaryStage.setTitle("Snake Game");
         primaryStage.setScene(mainScene);
         primaryStage.show();
