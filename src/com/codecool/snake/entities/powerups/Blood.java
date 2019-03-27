@@ -18,7 +18,7 @@ public class Blood extends PowerUp implements Interactable {
 
 
     public Blood() {
-        super(20);
+        super(25);
         setImage(Globals.getInstance().getImage("Blood"));
 
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
