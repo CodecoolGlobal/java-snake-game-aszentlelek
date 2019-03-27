@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.enemies;
 
+import com.codecool.snake.GameLoop;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
@@ -13,9 +14,11 @@ import javafx.geometry.Point2D;
 public class Jesus extends Enemy implements Animatable, Interactable {
 
     private Point2D heading;
+    private long jesusBirthTime = System.currentTimeMillis();
+    private int jesusLifeTime = Globals.getInstance().getRandomSpawnTime(3,5);
 
     public Jesus() {
-        super(-100);
+        super(-150);
         setImage(Globals.getInstance().getImage("Jesus"));
 
         double direction = Globals.rnd.nextDouble() * 360;
@@ -23,11 +26,15 @@ public class Jesus extends Enemy implements Animatable, Interactable {
 
         int speed = 1;
         heading = Utils.directionToVector(direction, speed);
+
+        if (((System.currentTimeMillis() - jesusBirthTime)/1000) == jesusLifeTime) {
+            destroy();
+        }
     }
 
     @Override
     public void step() {
-        double speed = 1.5;
+        double speed = 2.5;
         double direction;
         double directionToSnakeHead = Utils.angleOfLine(getX(), getY(), Globals.getInstance().getSnakeHeadActualPos().x,
                 Globals.getInstance().getSnakeHeadActualPos().y);
@@ -36,6 +43,9 @@ public class Jesus extends Enemy implements Animatable, Interactable {
         heading = Utils.directionToVector(direction, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+        if (((System.currentTimeMillis() - jesusBirthTime)/1000) == jesusLifeTime) {
+            destroy();
+        }
     }
 
     @Override

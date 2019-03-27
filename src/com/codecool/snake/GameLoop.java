@@ -3,17 +3,16 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Interactable;
-import com.codecool.snake.entities.enemies.Jesus;
 import com.codecool.snake.entities.snakes.Snake;
-import com.codecool.snake.entities.enemies.Bible;
+import com.codecool.snake.entities.enemies.*;
+import com.codecool.snake.entities.powerups.*;
 
 import java.util.List;
 
 public class GameLoop {
     private Snake snake;
     private boolean running = false;
-    private long startTime = System.currentTimeMillis();
-    private int randomSpawnTime = Globals.rnd.nextInt(7) + 3;
+    private long startTimeEnemy, startTimePowerUp, startTimeJesus = System.currentTimeMillis();
 
     public GameLoop(Snake snake) { this.snake = snake; }
 
@@ -28,12 +27,19 @@ public class GameLoop {
     public void step() {
         if(running) {
             snake.step();
-            if (((System.currentTimeMillis() - startTime)/1000) == randomSpawnTime) {
+            if (((System.currentTimeMillis() - startTimeEnemy)/1000) == Globals.getInstance().getRandomSpawnTime(2,5)) {
                 new Bible();
-                new Jesus();
-                randomSpawnTime = Globals.rnd.nextInt(20) + 5;
-                startTime = System.currentTimeMillis();
+                startTimeEnemy = System.currentTimeMillis();
             }
+            if (((System.currentTimeMillis() - startTimePowerUp)/1000) == Globals.getInstance().getRandomSpawnTime(1,3)) {
+                new Penta();
+                startTimePowerUp = System.currentTimeMillis();
+            }
+            if (((System.currentTimeMillis() - startTimeJesus)/1000) == Globals.getInstance().getRandomSpawnTime(12,20)) {
+                new Jesus();
+                startTimeJesus = System.currentTimeMillis();
+            }
+
             Globals.getInstance().game.getHPtext().setText("Health: "+snake.getHealth());
 
             for (GameEntity gameObject : Globals.getInstance().display.getObjectList()) {
