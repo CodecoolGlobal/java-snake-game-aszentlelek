@@ -11,7 +11,7 @@ public abstract class Enemy extends GameEntity{
         do {
             generateRandomXY();
             distanceFromSnakeHead = Globals.getInstance().getSnakeHeadActualPos().distance(randomPos);
-        } while (distanceFromSnakeHead > 200 || distanceFromSnakeHead < 100);
+        } while (distanceFromSnakeHead > 500 || distanceFromSnakeHead < 200);
 
         setPosition(randomPos);
 

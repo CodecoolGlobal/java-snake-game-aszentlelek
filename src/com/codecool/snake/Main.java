@@ -1,9 +1,8 @@
 package com.codecool.snake;
 
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.text.Text;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -17,11 +16,10 @@ public class Main extends Application {
         Game game = new Game();
 
         Scene mainScene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
-
         primaryStage.setTitle("Snake Game");
         primaryStage.setScene(mainScene);
         primaryStage.show();
-
+        game.setTableBackground(new Image("/eden.jpg"));
         game.start();
     }
 
