@@ -4,7 +4,7 @@ import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.Snake;
-import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.enemies.Bible;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class GameLoop {
         if(running) {
             snake.step();
             if (((System.currentTimeMillis() - startTime)/1000) == randomSpawnTime) {
-                new SimpleEnemy();
+                new Bible();
                 randomSpawnTime = Globals.rnd.nextInt(20) + 5;
                 startTime = System.currentTimeMillis();
             }
