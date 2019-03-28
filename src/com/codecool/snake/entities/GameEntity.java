@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 // The base class for every game entity.
 public abstract class GameEntity extends ImageView {
 
+    protected String SoundPath;
+
     protected Vec2d randomPos;
 
     protected GameEntity() { Globals.getInstance().display.add(this); }
@@ -15,6 +17,10 @@ public abstract class GameEntity extends ImageView {
     protected void destroy() {
         Globals.getInstance().display.remove(this);
 
+    }
+
+    public String getSoundPath() {
+        return SoundPath;
     }
 
     public Vec2d getPosition() {

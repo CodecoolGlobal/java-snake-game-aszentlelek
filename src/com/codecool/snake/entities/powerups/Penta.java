@@ -12,6 +12,7 @@ public class Penta extends GameEntity implements Interactable {
 
     public Penta() {
         setImage(Globals.getInstance().getImage("Penta"));
+        SoundPath = "penta_sound.wav";
 
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);

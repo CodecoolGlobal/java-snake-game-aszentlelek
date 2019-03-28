@@ -59,6 +59,7 @@ public class SnakeHead extends GameEntity implements Interactable {
             System.out.println(getMessage());
             snake.addPart(3);
         }
+        Globals.getInstance().game.playSound(entity.getSoundPath());
     }
 
     @Override

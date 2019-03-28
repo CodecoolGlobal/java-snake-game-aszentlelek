@@ -19,6 +19,8 @@ public class Blood extends PowerUp implements Interactable {
 
     public Blood() {
         super(25);
+        SoundPath = "blood_sound.wav";
+
         setImage(Globals.getInstance().getImage("Blood"));
 
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);

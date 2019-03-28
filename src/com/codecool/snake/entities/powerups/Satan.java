@@ -13,6 +13,7 @@ public class Satan extends PowerUp implements Interactable {
     public Satan() {
         super(0.5f);
         setImage(Globals.getInstance().getImage("Satan"));
+        SoundPath = "satan_sound.wav";
 
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);

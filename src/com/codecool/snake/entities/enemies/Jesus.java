@@ -18,6 +18,8 @@ public class Jesus extends Enemy implements Animatable, Interactable {
 
     public Jesus() {
         super(-75);
+        SoundPath = "jesus_sound.wav";
+
         setImage(Globals.getInstance().getImage("Jesus"));
 
         double direction = Globals.rnd.nextDouble() * 360;

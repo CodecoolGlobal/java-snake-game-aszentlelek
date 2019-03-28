@@ -87,6 +87,7 @@ public class Snake implements Animatable {
                     "On your belly you will go, And dust you will eat All the days of your life...",40,+
                     Globals.WINDOW_WIDTH/4.5,Globals.WINDOW_HEIGHT/2.5));
             Globals.getInstance().stopGame();
+            Globals.getInstance().game.changeMusic("death_sound.wav");
         }
         if (this.body.getList().size() * 10 + 6 >= 666) {
             Globals.getInstance().display.clear();

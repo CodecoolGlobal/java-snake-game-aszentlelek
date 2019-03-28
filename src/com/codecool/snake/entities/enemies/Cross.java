@@ -18,6 +18,8 @@ public class Cross extends Enemy implements Animatable, Interactable {
 
     public Cross() {
         super(-10);
+        SoundPath = "cross_sound.wav";
+
         setImage(Globals.getInstance().getImage("Cross"));
 
         double direction = Globals.rnd.nextDouble() * 360;

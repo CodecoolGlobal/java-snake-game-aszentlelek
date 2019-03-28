@@ -11,13 +11,18 @@ import com.sun.javafx.geom.Vec2d;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
 
+import java.io.File;
+
 
 public class Game extends Pane {
+    private MediaPlayer music;
     private Snake snake = null;
     private GameTimer gameTimer = new GameTimer();
     private Text HPtext = new Text();
@@ -41,6 +46,7 @@ public class Game extends Pane {
         spawnPowerUps(2);
         makeRestartBtn();
         spawnHP();
+        changeMusic("main_theme.mp3");
 
 
         GameLoop gameLoop = new GameLoop(snake);
@@ -85,6 +91,23 @@ public class Game extends Pane {
         this.getChildren().add(button);
     }
 
+    public void changeMusic(String filename){
+        String musicFile = "resources/"+filename;
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        if (music!=null){
+            music.stop();
+        }
+        music = new MediaPlayer(sound);
+        music.play();
+    }
+
+    public void playSound(String filename){
+        String musicFile = "resources/"+filename;
+
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
 
     private void spawnEnemies(int numberOfEnemies) {
         for(int i = 0; i < numberOfEnemies; ++i) new Bible();
