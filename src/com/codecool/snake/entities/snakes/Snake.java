@@ -80,8 +80,8 @@ public class Snake implements Animatable {
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
             Globals.getInstance().display.clear();
-            clickableSatan();
-            clickableJesus();
+            clickableSatan(1150, 650);
+            clickableJesus(420, 40);
             Globals.getInstance().game.setTableBackground(new Image("/purgatory.jpg"));
             System.out.println("Game Over");
             Globals.getInstance().game.getChildren().add(gameOverText("Score: " + (this.body.getList().size() * 10 + 6),70,1250,100));
@@ -97,6 +97,8 @@ public class Snake implements Animatable {
         }
         if (this.body.getList().size() * 10 + 6 >= 666) {
             Globals.getInstance().display.clear();
+            clickableSatan(1450, 700);
+            clickableJesus(50,700);
             Globals.getInstance().game.setTableBackground(new Image("/satanwin.png"));
             System.out.println("You win!");
             Globals.getInstance().game.getChildren().add(gameOverText("Score: " + (this.body.getList().size() * 10 + 6),70,1250,100));
@@ -174,23 +176,23 @@ public class Snake implements Animatable {
         return head;
     }
 
-    private void clickableSatan() {
+    private void clickableSatan(int X, int Y) {
         ImageView satan = new ImageView("satan_over.png");
         Tooltip.install(satan, new Tooltip("Click me if you want to try to destroy the humanity again! (RESTART)"));
         satan.setPickOnBounds(true);
-        satan.setX(1150);
-        satan.setY(650);
+        satan.setX(X);
+        satan.setY(Y);
         satan.setOnMouseClicked((MouseEvent e) -> Globals.getInstance().game.restart());
         Globals.getInstance().game.getChildren().add(satan);
     }
 
-    private void clickableJesus() {
+    private void clickableJesus(int X, int Y) {
         ImageView jesus = new ImageView("jesus_over.png");
         Tooltip.install(jesus, new Tooltip("Click me if you want to forgiveness for your sins and enter " +
                 "the Heaven's door! (EXIT)"));
         jesus.setPickOnBounds(true);
-        jesus.setX(420);
-        jesus.setY(40);
+        jesus.setX(X);
+        jesus.setY(Y);
         jesus.setOnMouseClicked((MouseEvent e) -> System.exit(0));
         Globals.getInstance().game.getChildren().add(jesus);
     }
