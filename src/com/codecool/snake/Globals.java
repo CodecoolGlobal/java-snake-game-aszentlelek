@@ -12,6 +12,8 @@ public class Globals {
     public static final double WINDOW_WIDTH = 1600;
     public static final double WINDOW_HEIGHT = 900;
 
+    static boolean menuIsActive = true;
+
     public static Random rnd = new Random();
     private Vec2d snakeHeadActualPos = new Vec2d(WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 
@@ -55,10 +57,18 @@ public class Globals {
 
     public void startGame() { gameLoop.start(); }
 
-    public void stopGame() { gameLoop.stop(); }
+    public void stopGame() {
+        if (gameLoop != null) {
+            gameLoop.stop();
+        }
+    }
 
     public int getRandomSpawnTime(int from, int to) {
         return Globals.rnd.nextInt(to-from) + from;
+    }
+
+    public void setMenuIsActiveFalse() {
+        menuIsActive = false;
     }
 
     private Globals() {

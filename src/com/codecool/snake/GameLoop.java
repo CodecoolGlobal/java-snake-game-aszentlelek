@@ -24,9 +24,7 @@ public class GameLoop {
         running = true;
     }
 
-    void stop() {
-        running = false;
-    }
+    void stop() {running = false;}
 
     void step() {
         if(running) {

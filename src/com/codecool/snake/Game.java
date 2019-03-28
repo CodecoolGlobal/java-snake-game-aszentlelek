@@ -17,6 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
+import javafx.scene.text.Font;
 
 import java.io.File;
 
@@ -33,7 +34,6 @@ public class Game extends Pane {
         Globals.getInstance().game = this;
         Globals.getInstance().display = new Display(this);
         Globals.getInstance().setupResources();
-        init();
     }
 
     public Text getHPtext() {
@@ -44,7 +44,7 @@ public class Game extends Pane {
         spawnSnake();
         spawnEnemies(2);
         spawnPowerUps(2);
-        makeRestartBtn();
+        makeRestartBtn(28, 40, "Restart");
         spawnHP();
         changeMusic("main_theme.mp3");
 
@@ -83,11 +83,21 @@ public class Game extends Pane {
         getChildren().add(HPtext);
     }
 
-    private void makeRestartBtn(){
-        Button button = new Button("Restart");
-        button.setLayoutX(20);
-        button.setLayoutY(60);
+    void makeRestartBtn(int X, int Y, String buttonText){
+        Button button = new Button(buttonText);
+        button.setLayoutX(X);
+        button.setLayoutY(Y);
+        button.setPrefSize(200, 50);
         button.setOnMouseClicked(event -> restart());
+        this.getChildren().add(button);
+    }
+
+    void makeExitBtn(int X, int Y, String buttonText){
+        Button button = new Button(buttonText);
+        button.setLayoutX(X);
+        button.setLayoutY(Y);
+        button.setPrefSize(200, 50);
+        button.setOnMouseClicked(event -> System.exit(0));
         this.getChildren().add(button);
     }
 
@@ -132,6 +142,8 @@ public class Game extends Pane {
     }
 
     public void restart(){
+        Globals.getInstance().stopGame();
+        Globals.getInstance().setMenuIsActiveFalse();
         Game game = new Game();
 
         Scene mainScene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
@@ -139,8 +151,10 @@ public class Game extends Pane {
 
         Main.stage.setTitle("Snake Game");
         Main.stage.setScene(mainScene);
+        Main.stage.centerOnScreen();
         Main.stage.show();
         game.setTableBackground(new Image("/eden.jpg"));
+        game.init();
         game.start();
     }
 }
