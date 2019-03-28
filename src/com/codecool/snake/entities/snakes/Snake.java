@@ -8,9 +8,13 @@ import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -76,6 +80,8 @@ public class Snake implements Animatable {
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
             Globals.getInstance().display.clear();
+            clickableSatan();
+            clickableJesus();
             Globals.getInstance().game.setTableBackground(new Image("/purgatory.jpg"));
             System.out.println("Game Over");
             Globals.getInstance().game.getChildren().add(gameOverText("Score: " + (this.body.getList().size() * 10 + 6),70,1250,100));
@@ -166,5 +172,26 @@ public class Snake implements Animatable {
 
         if(result != null) return result;
         return head;
+    }
+
+    private void clickableSatan() {
+        ImageView satan = new ImageView("satan_over.png");
+        Tooltip.install(satan, new Tooltip("Click me if you want to try to destroy the humanity again! (RESTART)"));
+        satan.setPickOnBounds(true);
+        satan.setX(1150);
+        satan.setY(650);
+        satan.setOnMouseClicked((MouseEvent e) -> Globals.getInstance().game.restart());
+        Globals.getInstance().game.getChildren().add(satan);
+    }
+
+    private void clickableJesus() {
+        ImageView jesus = new ImageView("jesus_over.png");
+        Tooltip.install(jesus, new Tooltip("Click me if you want to forgiveness for your sins and enter " +
+                "the Heaven's door! (EXIT)"));
+        jesus.setPickOnBounds(true);
+        jesus.setX(420);
+        jesus.setY(40);
+        jesus.setOnMouseClicked((MouseEvent e) -> System.exit(0));
+        Globals.getInstance().game.getChildren().add(jesus);
     }
 }
